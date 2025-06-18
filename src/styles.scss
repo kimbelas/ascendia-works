@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+$card-bg: #fff;
+$card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+$primary: #007bff;
+$primary-hover: #0056b3;
+$text-muted: #666;
+$border-color: #ccc;
+$radius: 6px;
+
+* {
+  box-sizing: border-box;
+}

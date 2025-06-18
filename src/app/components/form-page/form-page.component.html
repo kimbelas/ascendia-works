@@ -1,0 +1,30 @@
+<div class="form-page__container">
+  <div class="form-page__card">
+    <h1 class="form-page__title">{{ title() }}</h1>
+    <h3 class="form-page__subtitle">{{ subtitle() }}</h3>
+
+    @for (field of fields(); track field.ID) {
+      @if (field.Type === 'H1') {
+        <h1 class="form-page__field-label">{{ field.Text }}</h1>
+      }
+
+      @if (field.Type === 'Text') {
+        <input
+          [placeholder]="field.Placeholder"
+          [value]="formState.getValue(field.ID!)"
+          (input)="onInputChange(field.ID!, $event)"
+          class="form-page__input"
+        />
+      }
+
+      @if (field.Type === 'Button') {
+        <button
+          (click)="onButtonClick(field)"
+          class="form-page__button"
+        >
+          {{ field.Title }}
+        </button>
+      }
+    }
+  </div>
+</div>

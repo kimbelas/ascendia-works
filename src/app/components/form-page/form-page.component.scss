@@ -1,0 +1,66 @@
+@use "../../../styles.scss" as *;
+
+.form-page {
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: calc(100vh - 70px);
+  }
+
+  &__card {
+    background: $card-bg;
+    border-radius: 12px;
+    box-shadow: $card-shadow;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin: 0.5rem 0 1.5rem;
+    font-size: 1.25rem;
+    color: $text-muted;
+    text-align: center;
+  }
+
+  &__field-label {
+    margin: 1rem 0 0.5rem;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    font-size: 1rem;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    font-size: 1rem;
+    border: none;
+    border-radius: $radius;
+    background-color: $primary;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+}

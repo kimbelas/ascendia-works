@@ -1,27 +1,76 @@
-# AcadiaWorks
+# Ascendia Works Technical Assessment by Matt Belas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Setup
 
-## Development server
+1. Clone the repo
+2. Run `npm install`
+3. Run `ng serve`
+4. Open `http://localhost:4200`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## How It Works
 
-## Code scaffolding
+- **ConfigService** loads `/assets/config.json` and makes it reactive using Angular signals.
+- **FormPageComponent**:
+  - Uses Angular 18's `@for` and `@if` for clean template logic.
+  - Dynamically renders form elements based on the `Fields` array in the JSON:
+    - `H1` elements for section headers
+    - `Text` inputs bound to form state via `FormState` using signals
+    - `Button` elements with custom alert messages
+- **FormState**:
+  - Stores form values using `WritableSignal<Record<string, string>>`
+  - Parses `${field-id}` in `AlertMessage` using a regex
+- Extending the form is easy — just update `public/config.json` with new fields (sample data below).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Highlights
 
-## Build
+- Uses Angular 18 standalone components and signals
+- Dynamic field rendering based on external config
+- Alert message parsing using field IDs
+- Clean, minimal, focused on the task — no unnecessary features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## JSON Spec
 
-## Running unit tests
+```json
+{
+  "Title": "Tech Assessment",
+  "Subtitle": "Kim Matthew Belas",
+  "Fields": [
+    { "Type": "H1", "Text": "Person name" },
+    { "ID": "person-name", "Type": "Text", "Placeholder": "John Smith" },
+    { "ID": "hello-button", "Type": "Button", "Title": "Say hi", "AlertMessage": "Hello ${person-name}" }
+  ]
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## JSON Sample new fields for testing
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```json
+{
+  "Title": "Tech Assessment",
+  "Subtitle": "Kim Matthew Belas",
+  "Fields": [
+    { "Type": "H1", "Text": "Person name" },
+    { "ID": "personName", "Type": "Text", "Placeholder": "John Smith" },
+    { "ID": "firstName", "Type": "Text", "Placeholder": "First Name" },
+    { "ID": "email", "Type": "Text", "Placeholder": "Email" },
+    {
+      "ID": "helloButton",
+      "Type": "Button",
+      "Title": "Say hi",
+      "AlertMessage": "Hello ${personName}"
+    },
+    {
+      "ID": "hello-btn",
+      "Type": "Button",
+      "Title": "Show First Name",
+      "AlertMessage": "Hello ${firstName}"
+    },
+    {
+      "ID": "email-btn",
+      "Type": "Button",
+      "Title": "Show Email",
+      "AlertMessage": "Your email is ${email}"
+    }
+  ]
+}
+```

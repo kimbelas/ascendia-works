@@ -1,0 +1,14 @@
+{
+  "Title": "Tech Assessment",
+  "Subtitle": "Kim Matthew Belas",
+  "Fields": [
+    { "Type": "H1", "Text": "Person name" },
+    { "ID": "personName", "Type": "Text", "Placeholder": "John Smith" },
+    {
+      "ID": "helloButton",
+      "Type": "Button",
+      "Title": "Say hi",
+      "AlertMessage": "Hello ${personName}"
+    }
+  ]
+}
