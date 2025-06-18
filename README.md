@@ -9,7 +9,7 @@
 
 ## How It Works
 
-- **ConfigService** loads `/assets/config.json` and makes it reactive using Angular signals.
+- **ConfigService** loads `/public/config.json` and makes it reactive using Angular signals.
 - **FormPageComponent**:
   - Uses Angular 18's `@for` and `@if` for clean template logic.
   - Dynamically renders form elements based on the `Fields` array in the JSON:
